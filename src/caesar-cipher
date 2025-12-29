@@ -1,0 +1,14 @@
+function caesarCipher(str, shift) {
+  const lowercaseAlphabet = "abcdefghijklmnopqrstuvwxyz";
+  const uppercaseAlphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+  const characters = str.split("");
+  for (const [index, value] of characters.entries()) {
+    if (lowercaseAlphabet.includes(value)) {
+      characters[index] = lowercaseAlphabet[(lowercaseAlphabet.indexOf(value) + shift) % 26];
+    } else if (uppercaseAlphabet.includes(value)) {
+      characters[index] = uppercaseAlphabet[(uppercaseAlphabet.indexOf(value) + shift) % 26];
+    }
+  }
+  return characters.join("");
+}
+module.exports = caesarCipher;
